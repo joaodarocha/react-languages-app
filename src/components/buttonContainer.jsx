@@ -17,12 +17,10 @@ class ButtonContainer extends Component {
     return (
       <Button.Group>
         {ButtonContainer.languages.map(lang => {
-          // let color = lang === this.state.selected ? 'green' : 'grey';
-          let active = (lang === this.state.selected);
+          let active = lang === this.state.selected;
 
           return (
             <ButtonItem
-              // color={color}
               active={active}
               lang={lang}
               clickHandler={() => this.selectLanguage(lang)}
