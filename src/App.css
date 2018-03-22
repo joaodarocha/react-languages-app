@@ -7,12 +7,20 @@
   height: 80px;
 }
 
-.App-header {
+.app-header {
   /* background-color: #f0f0f0; */
   font-size: 20px;
   height: 15%;
   padding: 2%;
   color: black;
+}
+
+img {
+  border-radius: 0% !important;
+}
+
+.navbar{
+  padding: 3%;
 }
 
 .App-title {

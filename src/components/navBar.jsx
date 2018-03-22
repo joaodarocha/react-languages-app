@@ -2,21 +2,18 @@ import React, { Component } from 'react';
 import { Button } from 'semantic-ui-react';
 import ButtonItem from './buttonItem.jsx';
 
-class ButtonContainer extends Component {
+class NavBar extends Component {
   static languages = ['All', 'JavaScript', 'Java', 'HTML', 'CSS', 'C', 'C++'];
   state = { selected: 'All' };
 
   selectLanguage(lang) {
-    // event.persist();
-    // console.log(event);
-    console.log(lang);
     this.setState({ selected: lang });
   }
 
   render() {
     return (
-      <Button.Group>
-        {ButtonContainer.languages.map(lang => {
+      <Button.Group  className="navbar">
+        {NavBar.languages.map(lang => {
           let active = lang === this.state.selected;
 
           return (
@@ -34,4 +31,4 @@ class ButtonContainer extends Component {
   }
 }
 
-export default ButtonContainer;
+export default NavBar;
