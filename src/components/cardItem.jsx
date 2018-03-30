@@ -5,7 +5,7 @@ class CardItem extends Component {
 
 
     render() {
-        const {index, image, login, name, watchers} = this.props;
+        const {index, image, login, name, watchers, html_url} = this.props;
 
         return (
             <Card>
@@ -14,13 +14,13 @@ class CardItem extends Component {
                     {/* <Label attached="top left">#{mockRepo.items[0].index}</Label> */}
                     <Label attached="top left">#{index}</Label>
                     <Card.Header>{login}</Card.Header>
-                    <Card.Description>{name}</Card.Description>
+                    <Card.Description className="card-description" href={html_url}>{name}</Card.Description>
                 </Card.Content>
                 <Card.Content className="stars-numbers" extra>
-                    <a>
+                    <span className="stars-text">
                         <Icon name="star" />
                         {watchers} Stars
-                    </a>
+                    </span>
                 </Card.Content>
             </Card>
         );

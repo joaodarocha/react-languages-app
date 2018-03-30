@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import { Grid } from 'semantic-ui-react';
-import mockRepo from './mocks/mockRepo.js';
 import CardItem from './cardItem.jsx';
 import '../App.css';
 
 class CardGrid extends Component {
     render() {
-        // const { repos } = mockRepo;
         const { repos } = this.props;
 
         return (
-            <Grid columns="six" divided>
+            <Grid columns="six" >
                 <Grid.Row>
                     {repos.map( (repo, index) => {
                         return (
@@ -21,6 +19,7 @@ class CardGrid extends Component {
                                     login={repo.owner.login}
                                     name={repo.name}
                                     watchers={repo.watchers}
+                                    html_url={repo.html_url}
                                     
                                 />
                             </Grid.Column>

@@ -7,12 +7,13 @@
   height: 80px;
 }
 
-.app-header {
-  /* background-color: #f0f0f0; */
-  font-size: 20px;
-  height: 15%;
-  padding: 2%;
-  color: black;
+/* App Header */
+.ui.icon.header{
+  display: contents;
+}
+/* Header Icon */
+i.icon.comments:before {
+  color: #21ba45;
 }
 
 img {
@@ -38,5 +39,37 @@ img {
 
 .default-button{
   background: #babbbc;
+}
+
+/* Grid */
+.ui.grid>.row>.column {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+/* Image - circular */
+.ui.card>.image, .ui.cards>.card>.image {
+  border-radius: 500rem !important;
+  margin-top: 30px;
+  padding: 10px 10px;
+  background-color: white;
+}
+
+.ui.card>.content, .ui.cards>.card>.content {
+  border-top: 0px;
+  padding: 0.5rem 1rem;
+}
+
+.ui.top.attached.label+[class*="right floated"]+*, .ui.top.attached.label:first-child+:not(.attached) {
+  margin-top: 0px !important;
+}
+
+/* Star Icon */
+i.icon.star:before {
+  color: #efcb13;
+}
+
+.ui.card>.content>a.description.card-description {
+  color: #32a0d6;
 }
 

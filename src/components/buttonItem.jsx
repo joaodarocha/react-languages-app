@@ -2,13 +2,13 @@ import React from 'react';
 import { Button } from 'semantic-ui-react';
 
 function ButtonItem(props) {
-    let color = props.active ? 'green' : '';
+    let color = (props.active === props.lang) ? 'green' : '';
 
     return (
         <Button
             className={color}
-            active={props.active}
-            /* color={props.color} */ onClick={props.clickHandler}
+            lang={props.lang}
+            onClick={props.onClickHandler}
         >
             {props.item}
         </Button>

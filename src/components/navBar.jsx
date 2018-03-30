@@ -6,21 +6,18 @@ class NavBar extends Component {
   static languages = ['All', 'JavaScript', 'Java', 'HTML', 'CSS', 'C', 'C++'];
   state = { selected: 'All' };
 
-  selectLanguage(lang) {
-    this.setState({ selected: lang });
-  }
 
   render() {
+    let {languages, active} = this.props;
     return (
       <Button.Group  className="navbar">
-        {NavBar.languages.map(lang => {
-          let active = lang === this.state.selected;
+        {languages.map(lang => {
 
           return (
             <ButtonItem
               active={active}
               lang={lang}
-              clickHandler={() => this.selectLanguage(lang)}
+              onClickHandler={this.props.onClickNav}
               key={lang}
               item={lang}
             />
