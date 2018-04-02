@@ -34,6 +34,10 @@ img {
   padding: 3%;
 }
 
+.ui.pagination.menu {
+  margin-bottom: 20px;
+}
+
 .App-title {
   font-size: 1.5em;
 }

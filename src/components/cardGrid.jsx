@@ -5,16 +5,17 @@ import '../App.css';
 
 class CardGrid extends Component {
     render() {
-        const { repos } = this.props;
+        const { repos, activePage } = this.props;
 
         return (
-            <Grid columns="six" >
+            <Grid columns="six" stretched>
                 <Grid.Row>
                     {repos.map( (repo, index) => {
                         return (
                             <Grid.Column key={repo.id}>
                                 <CardItem
                                     index={index+1}
+                                    activePage={activePage}
                                     image={repo.owner.avatar_url}
                                     login={repo.owner.login}
                                     name={repo.name}

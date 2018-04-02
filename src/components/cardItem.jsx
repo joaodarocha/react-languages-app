@@ -5,14 +5,14 @@ class CardItem extends Component {
 
 
     render() {
-        const {index, image, login, name, watchers, html_url} = this.props;
+        const {index, activePage, image, login, name, watchers, html_url} = this.props;
 
         return (
             <Card>
                 <Image src={image} size='medium' circular />
                 <Card.Content>
                     {/* <Label attached="top left">#{mockRepo.items[0].index}</Label> */}
-                    <Label attached="top left">#{index}</Label>
+                    <Label attached="top left">#{index + (30 * activePage) - 30}</Label>
                     <Card.Header>{login}</Card.Header>
                     <Card.Description className="card-description" href={html_url}>{name}</Card.Description>
                 </Card.Content>
