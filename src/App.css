@@ -20,6 +20,16 @@ img {
   border-radius: 0% !important;
 }
 
+.api-error {
+  color: red;
+}
+
+.error-debugging {
+  background: lightgrey;
+  margin: 5px 400px;
+  padding: 10px;
+}
+
 .navbar{
   padding: 3%;
 }

@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import AppHeader from './appHeader.jsx';
 import NavBar from './navBar.jsx';
-import { Container, Dimmer, Loader } from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
 import CardGrid from './cardGrid';
+import ApiError from './api-error';
 import getRepos from '../services/apiService';
+import LoadingSpinner from './loadig-spinner';
 
 class PageContainer extends Component {
   state = {
     languages: ['All', 'JavaScript', 'Java', 'HTML', 'CSS', 'C', 'C++'],
     repos: [],
     selected: 'JavaScript',
-    isLoading: false
+    isLoading: false,
+    hasError: false,
+    error: {}
   };
 
   async componentDidMount() {
@@ -18,15 +22,23 @@ class PageContainer extends Component {
   }
 
   async updateRepos(language) {
-    this.setState({ isLoading: true });
-    const data = await getRepos(language);
+    this.setState({ isLoading: true, hasError: false });
 
-    this.setState({ isLoading: false });
-    this.setState({ repos: data });
+    try {
+      
+      const data = await getRepos(language);
+      this.setState({ isLoading: false, repos: data });
+
+    } catch (error) {
+
+      this.setState({ hasError: true, isLoading: false, error: error});
+      console.log('There was an error!');
+      console.log(error);
+    }
   }
 
-  selectLanguage = async (event) => {
-    console.log('Event.target.lang is => ', event.target.lang);
+  selectLanguage = async event => {
+    // console.log('Event.target.lang is => ', event.target.lang);
     const newLanguage = event.target.lang;
     const selectedLanguage = this.state.selected;
 
@@ -34,8 +46,8 @@ class PageContainer extends Component {
       return;
     }
 
-    this.setState({ selected: event.target.lang });
-    this.updateRepos(event.target.lang);
+    this.setState({ selected: newLanguage });
+    this.updateRepos(newLanguage);
   };
 
   render() {
@@ -48,12 +60,8 @@ class PageContainer extends Component {
           active={this.state.selected}
           onClickNav={this.selectLanguage}
         />
-        {this.state.isLoading && (
-          <Dimmer active inverted className="loading-spinner">
-            <Loader inverted>Loading</Loader>
-          </Dimmer>
-        )}
-        <CardGrid repos={repos} lang={this.state.selected} />
+        {this.state.isLoading && <LoadingSpinner />}
+        {this.state.hasError ? <ApiError error={this.state.error} ></ApiError> : <CardGrid repos={repos} lang={this.state.selected} />}
       </Container>
     );
   }
@@ -62,6 +70,8 @@ class PageContainer extends Component {
 export default PageContainer;
 
 /* 
+        <CardGrid repos={repos} lang={this.state.selected} />
+        <ApiError></ApiError>
 Tratamento de erros:
 Sem acesso à Internet
 Deu timetout
