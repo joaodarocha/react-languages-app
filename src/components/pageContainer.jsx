@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AppHeader from './appHeader.jsx';
 import NavBar from './navBar.jsx';
-import { Container, Dimmer, Loader, Image, Segment } from 'semantic-ui-react';
+import { Container, Dimmer, Loader } from 'semantic-ui-react';
 import CardGrid from './cardGrid';
 import getRepos from '../services/apiService';
 
@@ -10,7 +10,7 @@ class PageContainer extends Component {
     languages: ['All', 'JavaScript', 'Java', 'HTML', 'CSS', 'C', 'C++'],
     repos: [],
     selected: 'JavaScript',
-    loading: false
+    isLoading: false
   };
 
   async componentDidMount() {
@@ -18,15 +18,22 @@ class PageContainer extends Component {
   }
 
   async updateRepos(language) {
-    this.setState({ loading: true });
+    this.setState({ isLoading: true });
     const data = await getRepos(language);
 
-    this.setState({ loading: false });
+    this.setState({ isLoading: false });
     this.setState({ repos: data });
   }
 
-  selectLanguage = async event => {
+  selectLanguage = async (event) => {
     console.log('Event.target.lang is => ', event.target.lang);
+    const newLanguage = event.target.lang;
+    const selectedLanguage = this.state.selected;
+
+    if (selectedLanguage === newLanguage) {
+      return;
+    }
+
     this.setState({ selected: event.target.lang });
     this.updateRepos(event.target.lang);
   };
@@ -41,7 +48,7 @@ class PageContainer extends Component {
           active={this.state.selected}
           onClickNav={this.selectLanguage}
         />
-        {this.state.loading && (
+        {this.state.isLoading && (
           <Dimmer active inverted className="loading-spinner">
             <Loader inverted>Loading</Loader>
           </Dimmer>

@@ -8,7 +8,7 @@ function AppHeader(props) {
             <Icon name="comments" />
             Languages App
             <Header.Subheader>
-            Select one language to see the most popular repositories on GitHub
+                Check the most popular repositories on GitHub
             </Header.Subheader>
         </Header>
     );
