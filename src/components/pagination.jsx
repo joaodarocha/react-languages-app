@@ -15,6 +15,8 @@ export default class PaginationMenu extends Component {
         activePage={ activePage }
         onPageChange={ this.props.paginationHandler }
         totalPages={ totalPages }
+        nextItem={null}
+        prevItem={null}
       />
     );
   }

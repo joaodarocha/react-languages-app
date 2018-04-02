@@ -35,7 +35,9 @@ class PageContainer extends Component {
 
       const response = await getRepos(language, page);
       const items = response.items;
-      this.setState({ isLoading: false, repos: items });
+      const totalPages = (response.total_count / 30)|0;
+      console.log('totalPages =>', totalPages );
+      this.setState({ isLoading: false, repos: items, totalPages: totalPages });
 
     } catch (error) {
 
@@ -67,7 +69,7 @@ class PageContainer extends Component {
   };
 
   render() {
-    const { repos } = this.state;
+    const { repos, totalPages, activePage, selected } = this.state;
     return (
       <Container>
         <AppHeader />
@@ -78,15 +80,15 @@ class PageContainer extends Component {
         />
         <br />
         <PaginationMenu
-          activePage={this.state.activePage}
-          totalPages={6}
+          activePage={activePage}
+          totalPages={totalPages}
           paginationHandler={this.handlePagination}
         />
         {this.state.isLoading && <LoadingSpinner />}
         {this.state.hasError ? (
           <ApiError error={this.state.error} />
         ) : (
-          <CardGrid repos={repos} lang={this.state.selected} activePage={this.state.activePage} />
+          <CardGrid repos={repos} lang={selected} activePage={activePage} />
         )}
       </Container>
     );
