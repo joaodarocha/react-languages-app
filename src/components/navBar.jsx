@@ -16,7 +16,6 @@ class NavBar extends Component {
                             active={active}
                             lang={lang}
                             onClickHandler={this.props.onClickNav}
-                            item={lang}
                         />
                     );
                 })}

@@ -12,7 +12,7 @@ class PageContainer extends Component {
   state = {
     languages: ['All', 'JavaScript', 'Java', 'HTML', 'CSS', 'C', 'Ruby'],
     repos: [],
-    selected: 'JavaScript',
+    selectedLanguage: 'JavaScript',
     isLoading: false,
     hasError: false,
     error: {},
@@ -21,7 +21,7 @@ class PageContainer extends Component {
   };
 
   componentDidMount() {
-    this.updateRepos(this.state.selected);
+    this.updateRepos(this.state.selectedLanguage);
   }
 
   async updateRepos(language, page) {
@@ -35,13 +35,22 @@ class PageContainer extends Component {
 
       const response = await getRepos(language, page);
       const items = response.items;
-      const totalPages = (response.total_count / 30)|0;
-      console.log('totalPages =>', totalPages );
-      this.setState({ isLoading: false, repos: items, totalPages: totalPages });
+      const totalPages = 20; 
+      // const totalPages = (response.total_count / 30)|0;
+      // console.log('totalPages =>', totalPages );
+      this.setState({ 
+        isLoading: false, 
+        repos: items, 
+        totalPages: totalPages 
+      });
 
     } catch (error) {
 
-      this.setState({ hasError: true, isLoading: false, error: error });
+      this.setState({ 
+        hasError: true, 
+        isLoading: false, 
+        error: error 
+      });
       console.log('There was an error!');
       console.log(error);
     }
@@ -49,33 +58,38 @@ class PageContainer extends Component {
 
   selectLanguage = async event => {
     const newLanguage = event.target.lang;
-    const selectedLanguage = this.state.selected;
+    const selectedLanguage = this.state.selectedLanguage;
 
     if (selectedLanguage === newLanguage) {
       return;
     }
 
-    this.setState({ selected: newLanguage, activePage: '1' });
+    this.setState({ 
+      selectedLanguage: newLanguage, 
+      activePage: '1' 
+    });
     this.updateRepos(newLanguage);
   };
 
   handlePagination = event => {
     const newPage = event.target.innerText;
-    const language = this.state.selected;
+    const language = this.state.selectedLanguage;
 
     this.setState({ activePage: newPage } );
-    console.log('New page => ', newPage);
+    // console.log('New page => ', newPage);
     this.updateRepos(language, newPage);
   };
 
   render() {
-    const { repos, totalPages, activePage, selected } = this.state;
+    const { repos, totalPages, activePage, selectedLanguage, isLoading, hasError, error } = this.state;
+
+    
     return (
       <Container>
         <AppHeader />
         <NavBar
           languages={this.state.languages}
-          active={this.state.selected}
+          active={this.state.selectedLanguage}
           onClickNav={this.selectLanguage}
         />
         <br />
@@ -84,11 +98,14 @@ class PageContainer extends Component {
           totalPages={totalPages}
           paginationHandler={this.handlePagination}
         />
-        {this.state.isLoading && <LoadingSpinner />}
-        {this.state.hasError ? (
-          <ApiError error={this.state.error} />
+        {isLoading && <LoadingSpinner />}
+
+        {hasError ? (
+          <ApiError error={error} />
         ) : (
-          <CardGrid repos={repos} lang={selected} activePage={activePage} />
+          <CardGrid repos={repos} 
+                    lang={selectedLanguage} 
+                    activePage={activePage} />
         )}
       </Container>
     );

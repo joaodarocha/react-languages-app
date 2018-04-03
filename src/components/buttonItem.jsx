@@ -10,7 +10,7 @@ function ButtonItem(props) {
             lang={props.lang}
             onClick={props.onClickHandler}
         >
-            {props.item}
+            {props.lang}
         </Button>
     );
 }
