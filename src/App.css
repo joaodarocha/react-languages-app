@@ -16,6 +16,10 @@ i.icon.comments:before {
   color: #21ba45;
 }
 
+.loading-spinner {
+  position: absolute;
+}
+
 img {
   border-radius: 0% !important;
 }

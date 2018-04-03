@@ -17,6 +17,8 @@ export default class PaginationMenu extends Component {
         totalPages={ totalPages }
         nextItem={null}
         prevItem={null}
+        firstItem={null}
+        lastItem={null}
       />
     );
   }

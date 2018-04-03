@@ -1,10 +1,12 @@
 import React from 'react';
-import PageContainer from './components/pageContainer.jsx';
+import PopularRepos from './components/popular-repos.jsx';
+import FindUser from './components/find-user.jsx';
 import './App.css';
 
 const App = () => (
     <div className="App">
-        <PageContainer/>
+        {/*  <PopularRepos/> */}
+        <FindUser/>
        
     </div>
 );

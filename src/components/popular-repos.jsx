@@ -8,7 +8,7 @@ import getRepos from '../services/apiService';
 import LoadingSpinner from './loadig-spinner';
 import PaginationMenu from './pagination';
 
-class PageContainer extends Component {
+class PopularRepos extends Component {
   state = {
     languages: ['All', 'JavaScript', 'Java', 'HTML', 'CSS', 'C', 'Ruby'],
     repos: [],
@@ -34,7 +34,8 @@ class PageContainer extends Component {
     try {
 
       const response = await getRepos(language, page);
-      const items = response.items;
+      console.log('Response => ', response);
+      const items = response.data.items;
       const totalPages = 20; 
       // const totalPages = (response.total_count / 30)|0;
       // console.log('totalPages =>', totalPages );
@@ -112,7 +113,7 @@ class PageContainer extends Component {
   }
 }
 
-export default PageContainer;
+export default PopularRepos;
 
 /* 
 Tratamento de erros:
