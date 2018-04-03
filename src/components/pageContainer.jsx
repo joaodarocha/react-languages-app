@@ -10,7 +10,7 @@ import PaginationMenu from './pagination';
 
 class PageContainer extends Component {
   state = {
-    languages: ['All', 'JavaScript', 'Java', 'HTML', 'CSS', 'C', 'C++'],
+    languages: ['All', 'JavaScript', 'Java', 'HTML', 'CSS', 'C', 'Ruby'],
     repos: [],
     selected: 'JavaScript',
     isLoading: false,
