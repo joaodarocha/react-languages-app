@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Icon, Image, Label } from 'semantic-ui-react';
+import mockRepo from './mocks/mockRepo';
 
 class CardItem extends Component {
 
@@ -12,7 +13,7 @@ class CardItem extends Component {
                 <Image src={image} size='medium' circular />
                 <Card.Content>
                     {/* <Label attached="top left">#{mockRepo.items[0].index}</Label> */}
-                    <Label attached="top left">#{index + 30 * (activePage - 1)}</Label>
+                    { index && <Label attached="top left">#{index + 30 * (activePage - 1)}</Label>}
                     <Card.Header>{login}</Card.Header>
                     <Card.Description className="card-description" href={html_url}>{name}</Card.Description>
                 </Card.Content>
