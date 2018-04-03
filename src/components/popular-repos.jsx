@@ -7,6 +7,7 @@ import ApiError from './api-error';
 import getRepos from '../services/apiService';
 import LoadingSpinner from './loadig-spinner';
 import PaginationMenu from './pagination';
+import MenuBar from './menuBar.jsx';
 
 class PopularRepos extends Component {
   state = {
@@ -34,7 +35,7 @@ class PopularRepos extends Component {
     try {
 
       const response = await getRepos(language, page);
-      console.log('Response => ', response);
+      // console.log('Response => ', response);
       const items = response.data.items;
       const totalPages = 20; 
       // const totalPages = (response.total_count / 30)|0;
@@ -87,7 +88,11 @@ class PopularRepos extends Component {
     
     return (
       <Container>
-        <AppHeader />
+        <MenuBar/>
+        <AppHeader 
+          icon="comments"
+          title="Popular Repos"
+          subtitle="Check the most popular repositories on GitHub"/>
         <NavBar
           languages={this.state.languages}
           active={this.state.selectedLanguage}

@@ -12,7 +12,7 @@
   display: contents;
 }
 /* Header Icon */
-i.icon.comments:before {
+i.icon:before {
   color: #21ba45;
 }
 

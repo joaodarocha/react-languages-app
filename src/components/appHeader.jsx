@@ -3,12 +3,14 @@ import { Header, Icon } from 'semantic-ui-react';
 import '../App.css';
 
 function AppHeader(props) {
+    const { icon, title, subtitle } = props;
+
     return (
         <Header as="h1" icon>
-            <Icon name="comments" />
-            Languages App
+            <Icon name={ icon } />
+            { title }
             <Header.Subheader>
-                Check the most popular repositories on GitHub
+                { subtitle }
             </Header.Subheader>
         </Header>
     );
