@@ -77,7 +77,7 @@ class Developer extends Component {
                 <AppHeader
                     icon="github"
                     title="Find GitHub User"
-                    subtitle=""
+                    subtitle=" "
                 />
                 <Input placeholder="Search..." onChange={this.handleChange} />
                 <Button onClick={this.handleSubmit}>Search...</Button>
@@ -93,14 +93,14 @@ class Developer extends Component {
                             <Statistic size="mini">
                                 <Statistic.Value>{watchers}</Statistic.Value>
                                 <Statistic.Label>
-                                    <Icon name="spy" />
+                                    <Icon name="spy" large></Icon>
                                     Followers
                                 </Statistic.Label>
                             </Statistic>
                             <Statistic size="mini">
                                 <Statistic.Value>{repos}</Statistic.Value>
                                 <Statistic.Label>
-                                    <Icon name="github square" />
+                                    <Icon name="github square" large></Icon>
                                     Repos
                                 </Statistic.Label>
                             </Statistic>

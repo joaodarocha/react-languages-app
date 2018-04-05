@@ -16,14 +16,39 @@ i.icon:before {
   color: #21ba45;
 }
 
+i.icon {
+  color: #21ba45;
+  margin-top:20px !important;
+}
+
+i.icon.star:before {
+  color: #21ba45 !important;
+}
+
 .loading-spinner {
-  position: absolute;
+  position: relative;
 }
 
 img {
   border-radius: 0% !important;
 }
 
+.ui.statistics {
+  padding-top: 20px;
+}
+
+.ui.button {
+  margin-left: 10px;
+}
+
+.sub.header {
+  margin-bottom: 20px;
+}
+
+.ui.mini.statistic {
+  margin-left: 50px;
+  margin-top: 0px;
+}
 .api-error {
   color: red;
 }

@@ -90,7 +90,7 @@ class PopularRepos extends Component {
       <Container>
         <MenuBar/>
         <AppHeader 
-          icon="comments"
+          icon="star"
           title="Popular Repos"
           subtitle="Check the most popular repositories on GitHub"/>
         <NavBar
