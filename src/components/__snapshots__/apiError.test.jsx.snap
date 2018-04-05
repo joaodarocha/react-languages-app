@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing ApiError renders an error message inline using snapshots 1`] = `
+<div
+  className="api-error"
+>
+  There was an error fetching data from the API.
+  <br />
+  Please try again in one minute.
+  <div
+    className="error-debugging"
+  >
+    an error
+  </div>
+</div>
+`;
+
+exports[`Testing ApiError renders an error message inline using snapshots 2`] = `
+<div
+  className="api-error"
+>
+  There was an error fetching data from the API.
+  <br />
+  Please try again in one minute.
+  <div
+    className="error-debugging"
+  >
+    another error
+  </div>
+</div>
+`;

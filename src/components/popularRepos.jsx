@@ -3,7 +3,7 @@ import AppHeader from './appHeader.jsx';
 import NavBar from './navBar.jsx';
 import { Container } from 'semantic-ui-react';
 import CardGrid from './cardGrid';
-import ApiError from './api-error';
+import ApiError from './apiError';
 import getRepos from '../services/apiService';
 import LoadingSpinner from './loadig-spinner';
 import PaginationMenu from './pagination';

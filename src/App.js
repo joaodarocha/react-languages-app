@@ -1,5 +1,5 @@
 import React from 'react';
-import PopularRepos from './components/popular-repos.jsx';
+import PopularRepos from './components/popularRepos.jsx';
 import Developer from './components/developer.jsx';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Grid } from 'semantic-ui-react';

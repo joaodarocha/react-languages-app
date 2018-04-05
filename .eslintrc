@@ -1,5 +1,6 @@
 {
-    "extends": "eslint:recommended",
+    "extends": ["eslint:recommended", "prettier", ],
+    "plugins": ["react", "import", "jest"],
     "parserOptions": {
         "ecmaVersion": 8,
         "impliedStrict": true,
@@ -46,8 +47,6 @@
         "new-cap": [2, {
             "properties": false
         }]
-    },
-    "plugins": [
-        "react"
-    ]
+    }
+    
 }
