@@ -79,8 +79,10 @@ class Developer extends Component {
                     title="Find GitHub User"
                     subtitle=" "
                 />
+                
                 <Input placeholder="Search..." onChange={this.handleChange} />
                 <Button onClick={this.handleSubmit}>Search...</Button>
+
                 {this.state.error && error}
                 {this.state.user.login && (
                     <CardItem

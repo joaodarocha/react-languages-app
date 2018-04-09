@@ -4,9 +4,11 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "cypress": "^2.1.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.3",
+    "eslint-plugin-cypress": "^2.0.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
@@ -18,6 +20,8 @@
     "start": "HOST=`0.0.0.0` react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "coverage": "npm test -- --coverage",
+    "e2e": "cypress open",
     "eject": "react-scripts eject"
   }
 }

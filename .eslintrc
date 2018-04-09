@@ -1,6 +1,6 @@
 {
-    "extends": ["eslint:recommended", "prettier", ],
-    "plugins": ["react", "import", "jest"],
+    "extends": ["eslint:recommended", "prettier"],
+    "plugins": ["react", "import", "jest", "cypress"],
     "parserOptions": {
         "ecmaVersion": 8,
         "impliedStrict": true,
@@ -10,7 +10,10 @@
         }
     },
     "env": {
-        "node": true
+        "es6": true,
+        "browser": true,
+        "node": true,
+        "cypress/globals": true
     },
     "globals": {
         "describe": true,

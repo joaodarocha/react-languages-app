@@ -5,7 +5,9 @@ import ApiError from './apiError';
 
 describe('Testing ApiError', () => {
     it('renders an error message inline using snapshots', () => {
+
         expect(toJson(shallow(<ApiError message="an error" />))).toMatchSnapshot();
+
         expect(toJson(shallow(<ApiError message="another error" />))).toMatchSnapshot();
     });
 });
@@ -20,7 +22,7 @@ describe('Testing ApiError without snapshot', () => {
         expect(shallow(<ApiError {...minProps} />)).toHaveLength(1); 
       });
 
-    it('renders an error message without using snapshots', () => {
+    it('renders an error message', () => {
         expect(shallow(<ApiError message="an error" />))
     });
     // it.only('renders error message inside div', () => {
