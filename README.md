@@ -1,5 +1,5 @@
 ## Summary
 
-This React project is a part of <Academia de CÛdigo_>'s JavaScript mini-bootcamp for EY Portugal.
+This React project was made while taking a JavaScript mini-bootcamp.
 
-author: Jo„o Rocha
+author: Jo√£o Rocha
